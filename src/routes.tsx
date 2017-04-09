@@ -8,10 +8,11 @@ import {MainApp} from "./components/mainApp";
 export const Routes = () => (
   <Router>
     <div>
-      <Route exact path="/" component={MainApp}>
-        <Route path="list" component={List}/>
-        <Route path="settings" component={Settings}/>
-      </Route>
+      <MainApp>
+        <Route  path="/list" component={List}/>
+        <Route  path="/settings" component={Settings}/>
+      </MainApp>
+
 
     </div>
   </Router>
