@@ -6,6 +6,7 @@ import {Settings} from './components/settings'
 import {MainApp} from "./components/mainApp";
 import {Login} from "./components/login";
 import {PageNotFound} from './components/pageNotFound'
+import {User, UserID, UserStatic} from "./components/User";
 
 
 export const Routes = () => (
@@ -14,8 +15,16 @@ export const Routes = () => (
       <Switch>
         <Route exact path="/login" component={Login}/>
         <MainApp>
-          <Route exact path="/list" component={List}/>
-          <Route exact path="/settings" component={Settings}/>
+          <Route path="/list" component={List}/>
+          <Route path="/settings" component={Settings}/>
+          <Switch>
+            <User path="/user" >
+              <Switch>
+                <Route exact path="/user/staticUser" component={UserStatic} />
+                <Route exact path="/user/:id" component={UserID} />
+              </Switch>
+            </User>
+          </Switch>
         </MainApp>
         <Route path="*" component={PageNotFound}/>
       </Switch>
