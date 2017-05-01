@@ -4,8 +4,29 @@
     <meta content="">
     <style></style>
   </head>
-  <body>
+  <body id="body">
+    <script>
+      var messageEventHandler = function(event){
+        //preventing internal webpack interruption messages.
+        // No security checks for now
+        if(event.origin != window.location.origin){
+          if(event.data.name === "token"){
+            alert(`Token fetched from parent is: ${event.data.value}`)
+          }
+        }
+      }
+      window.addEventListener('message', messageEventHandler,false);
+    </script>
     <div id="react-container"></div>
     <script src="/dist/bundle.js"></script>
+    <script>
+
+
+        window.onload = function() {
+          var body = document.getElementById('body').contentWindow;
+          console.log("sending message from iframe")
+          parent.postMessage('Message from iframe!', '*');
+        }
+    </script>
   </body>
 </html>

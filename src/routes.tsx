@@ -63,6 +63,10 @@ import {Footer} from "./components/footer";
             <MainAppContainer exact path="/" component={MainApp} />
             <MainAppContainer path="/list" component={List} />
             <MainAppContainer path="/settings" component={Settings} />
+            <MainAppContainer path="/user/:id/create" component={UserID} />
+            <MainAppContainer path="/user/:id/view" component={UserID} />
+            <MainAppContainer path="/user/:id/edit" component={UserID} />
+            <MainAppContainer path="/user/:id/delete" component={UserID} />
             <Route path="*" component={PageNotFound} />
           </Switch>
         </div>
