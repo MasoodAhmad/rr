@@ -1,14 +1,14 @@
 ///<reference path="../node_modules/@types/react-router/index.d.ts"/>
 import * as React from 'react'
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import {List} from './components/list'
-import {Settings} from './components/settings'
-import {MainApp} from "./components/mainApp";
-import {Login} from "./components/login";
-import {PageNotFound} from './components/pageNotFound'
-import {User, UserID, UserStatic} from "./components/User";
-import {Header} from "./components/header";
-import {Footer} from "./components/footer";
+import {List} from './components/ui/list'
+import {Settings} from './components/ui/settings'
+import {MainApp} from "./components/ui/mainApp";
+import {Login} from "./components/ui/login";
+import {PageNotFound} from './components/ui/pageNotFound'
+import {User, UserID, UserStatic} from "./components/ui/User";
+import {Header} from "./components/ui/header";
+import {Footer} from "./components/ui/footer";
 
 
 // export const Routes = () => (
@@ -56,21 +56,21 @@ import {Footer} from "./components/footer";
     };
 //
     export const Routes = () => (
-      <Router>
-        <div>
-          <Switch>
-            <Route exact path="/login" component={Login} />
-            <MainAppContainer exact path="/" component={MainApp} />
-            <MainAppContainer path="/list" component={List} />
-            <MainAppContainer path="/settings" component={Settings} />
-            <MainAppContainer path="/user/:id/create" component={UserID} />
-            <MainAppContainer path="/user/:id/view" component={UserID} />
-            <MainAppContainer path="/user/:id/edit" component={UserID} />
-            <MainAppContainer path="/user/:id/delete" component={UserID} />
-            <Route path="*" component={PageNotFound} />
-          </Switch>
-        </div>
-      </Router>
+        <Router>
+          <div>
+            <Switch>
+              <Route exact path="/login" component={Login} />
+              <MainAppContainer exact path="/" component={MainApp} />
+              <MainAppContainer path="/list" component={List} />
+              <MainAppContainer path="/settings" component={Settings} />
+              <MainAppContainer path="/user/:id/create" component={UserID} />
+              <MainAppContainer path="/user/:id/view" component={UserID} />
+              <MainAppContainer path="/user/:id/update" component={UserID} />
+              <MainAppContainer path="/user/:id/delete" component={UserID} />
+              <Route path="*" component={PageNotFound} />
+            </Switch>
+          </div>
+        </Router>
     );
 //   }
 // }
