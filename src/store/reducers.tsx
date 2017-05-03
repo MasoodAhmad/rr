@@ -2,7 +2,7 @@ import T from '../Constants/types'
 import { combineReducers } from 'redux'
 
 
-export const users = (state=[], action) => {
+export const user = (state={}, action) => {
   switch(action.type) {
     case T.USER.CREATE :
       //TODO: do some math
@@ -32,7 +32,7 @@ export const users = (state=[], action) => {
 
 
 export default combineReducers({
-  users
+  user
   // , fetching
 })
 

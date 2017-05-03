@@ -6,7 +6,8 @@ import {Settings} from './components/ui/settings'
 import {MainApp} from "./components/ui/mainApp";
 import {Login} from "./components/ui/login";
 import {PageNotFound} from './components/ui/pageNotFound'
-import {User, UserID, UserStatic} from "./components/ui/User";
+import UserID from "./components/containers/userContainer";
+// import {User, UserStatic} from "./components/ui/User";
 import {Header} from "./components/ui/header";
 import {Footer} from "./components/ui/footer";
 
@@ -63,10 +64,10 @@ import {Footer} from "./components/ui/footer";
               <MainAppContainer exact path="/" component={MainApp} />
               <MainAppContainer path="/list" component={List} />
               <MainAppContainer path="/settings" component={Settings} />
-              <MainAppContainer path="/user/:id/create" component={UserID} />
-              <MainAppContainer path="/user/:id/view" component={UserID} />
-              <MainAppContainer path="/user/:id/update" component={UserID} />
-              <MainAppContainer path="/user/:id/delete" component={UserID} />
+              <Route path="/user/:id/create" component={UserID} />
+              <Route path="/user/:id/view" component={UserID} />
+              <Route path="/user/:id/update" component={UserID} />
+              <Route path="/user/:id/delete" component={UserID} />
               <Route path="*" component={PageNotFound} />
             </Switch>
           </div>

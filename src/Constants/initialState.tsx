@@ -1,5 +1,5 @@
 const state = {
-  "users":
+  "user":
     {
       "firstName": "default first name",
       "lastName" : "default last name"

@@ -6,10 +6,10 @@ import { createStore, applyMiddleware } from 'redux'
 const consoleMessages = store => next => action => {
   let result
   console.groupCollapsed(`dispatching action => ${action.type}`)
-  console.log('users', store.getState().users.length)
+  let { user } = store.getState()
+  console.log(`user: ${JSON.stringify(user)}`)
   result = next(action)
-  let { users, someOther, someMore } = store.getState()
-  console.log(`users: ${users.length}`)
+  console.log(`user: ${JSON.stringify(user)}`)
   console.groupEnd()
   return result
 }

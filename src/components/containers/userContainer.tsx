@@ -6,8 +6,8 @@ import { createUser } from '../../actions/actions'
 
 const mapStateToProps = (state, props) =>
   ({
-    firstName: state.users.firstName,
-    lastName: state.users.lastName
+    firstName: state.user.firstName,
+    lastName: state.user.lastName
 
   })
 
