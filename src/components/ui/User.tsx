@@ -13,13 +13,14 @@ var isUpdateMode = (props) => {
 }
 
 export const UserID:any = ( props ) => {
+  let _firstName, _lastName
   var update = (e) => {
     e.preventDefault();
     //do some other logic
     props.history.push(`/user/${props.match.params.id}/update`)
     props.onCreateUser({
-      firstName: "fName",
-      lastName: "lName"
+      firstName: _firstName.value,
+      lastName: _lastName.value
     })
   }
 
@@ -35,9 +36,23 @@ export const UserID:any = ( props ) => {
   <div>
     <div>This is user ID page... your id: {props.match.params.id} </div>
     <form method="POST">
-      <input type="text" name="firstName" readOnly={!isUpdateMode(props)} />
-      <input type="text" name="lastName" readOnly={!isUpdateMode(props)} />
-      <input type="password" name="password" readOnly={!isUpdateMode(props)} />
+      <input
+        ref={input => _firstName = input}
+        type="text"
+        name="firstName"
+        readOnly={!isUpdateMode(props)}
+      />
+      <input
+        ref={input => _lastName = input}
+        type="text"
+        name="lastName"
+        readOnly={!isUpdateMode(props)}
+      />
+      <input
+        type="password"
+        name="password"
+        readOnly={!isUpdateMode(props)}
+      />
       Save: <button name="Save" value="Save" onClick={save}/>
       Edit: <button name="Edit" value="Edit" onClick={update}/>
     </form>

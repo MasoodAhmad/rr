@@ -3,13 +3,16 @@ import { combineReducers } from 'redux'
 
 
 export const user = (state={}, action) => {
+  console.log(`state & payload: ${JSON.stringify(action)}`)
   switch(action.type) {
+
     case T.USER.CREATE :
       //TODO: do some math
-      return state;
+      return action.payload
+
     case T.USER.UPDATE :
       //TODO: dom some math
-      return state;
+      return action.payload
     default:
       return state
   }

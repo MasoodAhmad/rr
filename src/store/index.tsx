@@ -8,8 +8,10 @@ const consoleMessages = store => next => action => {
   console.groupCollapsed(`dispatching action => ${action.type}`)
   let { user } = store.getState()
   console.log(`user: ${JSON.stringify(user)}`)
+  // console.log(user)
   result = next(action)
   console.log(`user: ${JSON.stringify(user)}`)
+  // console.log(user)
   console.groupEnd()
   return result
 }
